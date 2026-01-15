@@ -89,7 +89,7 @@ function handleAction() {
             const teamsCardHTML = `
                 <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm mt-2">
                     <div class="bg-[#6264A7] px-3 py-2 flex items-center gap-2">
-                        <div class="w-4 h-4 bg-white rounded flex items-center justify-center text-[#6264A7] text-[10px] font-bold">T</div>
+                        <img src="teams.png" class="w-5 h-5 object-contain bg-white rounded-sm p-0.5">
                         <span class="text-white text-xs font-bold uppercase tracking-wider">Teams Request Sent</span>
                     </div>
                     <div class="p-3">
@@ -158,4 +158,5 @@ function typeWriter(text, element, speed, callback) {
         }
     }
     type();
+
 }
