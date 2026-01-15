@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Northstar Agent - Copilot Demo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100 h-screen flex flex-col font-sans overflow-hidden">
+
+    <div class="bg-[#2B579A] text-white h-12 flex items-center px-4 justify-between shadow-md z-10">
+        <div class="flex items-center gap-4">
+            <img src="assets/word.jpg" class="w-6 h-6 rounded object-cover" alt="Word">
+            
+            <span class="font-semibold tracking-wide text-sm">Word</span>
+            <span class="opacity-50 text-xs">|</span>
+            <span class="text-sm font-medium">Project Falcon_Proposal.docx - Saved</span>
+        </div>
+        <div class="flex items-center gap-3">
+            <div class="bg-white/20 px-3 py-1 rounded-full text-xs font-medium flex items-center gap-2">
+                <span class="w-2 h-2 bg-green-400 rounded-full"></span> Only You
+            </div>
+            <div class="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center text-xs font-bold">JD</div>
+        </div>
+    </div>
+
+    <div class="flex-1 flex overflow-hidden">
+        
+        <div class="flex-1 bg-[#F3F2F1] relative overflow-y-auto flex justify-center p-8">
+            <div class="bg-white w-[816px] min-h-[1056px] shadow-lg p-[96px] text-gray-800 transition-all duration-500">
+                
+                <div class="border-b-2 border-gray-800 pb-4 mb-8">
+                    <h1 class="text-4xl font-bold text-gray-900 uppercase tracking-tighter">Proposal</h1>
+                    <div class="flex justify-between mt-2 text-gray-500 text-sm">
+                        <span>Prepared for: Acme Corp</span>
+                        <span>Date: January 15, 2026</span>
+                    </div>
+                </div>
+
+                <div id="doc-content" class="text-gray-400 italic font-serif text-lg leading-relaxed">
+                    [Document body is currently empty. Use Copilot to generate a draft based on the Acme Corp deal context...]
+                </div>
+            </div>
+        </div>
+
+        <div class="w-[400px] bg-white border-l border-gray-200 flex flex-col shadow-2xl relative z-20">
+            
+            <div class="h-16 border-b border-gray-100 flex items-center px-6 justify-between bg-gradient-to-r from-white to-gray-50">
+                <div class="flex items-center gap-3">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" fill="url(#paint0_linear)" />
+                        <defs>
+                            <linearGradient id="paint0_linear" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#26C6DA"/>
+                                <stop offset="1" stop-color="#0078D4"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <span class="font-bold text-gray-700 text-lg">Copilot</span>
+                </div>
+                <button class="text-gray-400 hover:text-gray-600">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+
+            <div id="chat-history" class="flex-1 overflow-y-auto p-6 space-y-6 bg-white">
+                
+                <div class="flex gap-3 animate-fade-in">
+                    <div class="w-8 h-8 rounded-full bg-gradient-to-br from-cyan-400 to-blue-600 flex-shrink-0 flex items-center justify-center text-white text-xs font-bold">AI</div>
+                    <div class="bg-gray-50 p-4 rounded-2xl rounded-tl-none border border-gray-100 text-sm text-gray-700 shadow-sm leading-relaxed">
+                        
+                        <p class="mb-2 flex items-center gap-2">
+                            <img src="assets/outlook.png" class="w-4 h-4 object-contain">
+                            <span>Hi there. I noticed you received a request from <b>Acme Corp</b> for the "Project Falcon" rollout.</span>
+                        </p>
+
+                        <div class="bg-white p-3 rounded border border-gray-200 mb-2">
+                            <div class="text-xs text-gray-500 font-semibold uppercase mb-1">Salesforce Context Found</div>
+                            <div class="flex justify-between text-xs text-gray-800">
+                                <span>Deal Value:</span>
+                                <span class="font-bold">$127,500</span>
+                            </div>
+                            <div class="flex justify-between text-xs text-gray-800 mt-1">
+                                <span>Stage:</span>
+                                <span class="bg-green-100 text-green-700 px-1.5 rounded">Negotiation</span>
+                            </div>
+                        </div>
+                        <p>Would you like me to draft a proposal using the <b>Enterprise Template</b>?</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="p-6 border-t border-gray-100 bg-white">
+                <button id="action-btn" onclick="handleAction()" class="w-full group relative flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-xl text-white bg-[#0078D4] hover:bg-[#006cbd] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all shadow-md hover:shadow-lg">
+                    <span id="btn-icon" class="mr-2">✨</span>
+                    <span id="btn-text">Draft Proposal</span>
+                    
+                    <div id="btn-loader" class="hidden absolute inset-0 flex items-center justify-center bg-[#0078D4] rounded-xl">
+                        <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                    </div>
+                </button>
+                
+                <div class="mt-3 text-center">
+                    <p class="text-xs text-gray-400">AI-generated content may be incorrect.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
